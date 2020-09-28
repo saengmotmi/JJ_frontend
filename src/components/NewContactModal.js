@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
-import { Form, Modal, Button } from "react-bootstrap";
-import actions from "../store/actions";
+import React, { useRef } from 'react';
+import { Form, Modal, Button } from 'react-bootstrap';
+import actions from '../store/actions';
+import { useDispatch } from 'react-redux';
 
 export default function NewContactModal({ closeModal }) {
   const idRef = useRef();

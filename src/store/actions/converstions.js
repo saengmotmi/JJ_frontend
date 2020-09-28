@@ -1,5 +1,5 @@
 const actions = {
-  ADD_CONVERSATION: "ADD_CONVERSATION",
+  ADD_CONVERSATION: 'ADD_CONVERSATION',
 };
 
 const actionCreators = {
