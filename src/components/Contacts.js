@@ -1,9 +1,9 @@
-import React from "react";
-import { ListGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { ListGroup } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 export default function Contacts() {
-  const contacts = useSelector((store) => store.contacts);
+  const contacts = useSelector((state) => state.contacts);
 
   return (
     <ListGroup variant="flush">

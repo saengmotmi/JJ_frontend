@@ -1,34 +1,31 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { ListGroup } from "react-bootstrap";
+import React from 'react';
+import { ListGroup } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 export default function Conversations() {
-  const conversations = useSelector((store) => store.conversations);
-  const contacts = useSelector((store) => store.contacts);
-  const dispatch = useDispatch();
+  const conversations = useSelector((state) => state.conversations);
+  const contacts = useSelector((state) => state.contacts);
 
   const formattedConversations = conversations.map((conversation) => {
-    const recipents = conversation.recipents.map((recipent) => {
-      const contact = contacts.find((contact) => {
-        return contact.id === recipent;
-      });
-      const name = (contact && contact.name) || recipent;
-      return { id: recipent, name };
+    const recipients = conversation.recipients.map((recipient) => {
+      return {
+        id: recipient,
+        name:
+          contacts.find((contact) => contact.id === recipient)?.name ||
+          recipient,
+      };
     });
 
-    return { ...conversation, recipents };
+    return { ...conversation, recipients };
   });
 
   return (
     <ListGroup variant="flush">
-      {formattedConversations.map((conversation, idx) => (
-        <ListGroup.Item
-          key={idx}
-          action
-          // onClick={() => dispatch(action.)}
-          active={conversation.selected}
-        >
-          {conversation.recipents.map((r) => r.name).join(", ")}
+      {formattedConversations.map((conversation, index) => (
+        <ListGroup.Item key={index} action active={conversation.selected}>
+          {conversation.recipients
+            .map((recipient) => recipient.name)
+            .join(', ')}
         </ListGroup.Item>
       ))}
     </ListGroup>

@@ -1,5 +1,5 @@
-import contacts from "./contacts";
-import conversations from "./converstions";
+import contacts from './contacts';
+import conversations from './converstions';
 
 export default {
   ...contacts,
