@@ -3,10 +3,10 @@ const actions = {
 };
 
 const actionCreators = {
-  addConverstion: (converstion) => {
+  addConversation: (conversation) => {
     return {
       type: actions.ADD_CONVERSATION,
-      payload: { converstion },
+      payload: { conversation },
     };
   },
 };

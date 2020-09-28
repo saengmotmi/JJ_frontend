@@ -1,14 +1,22 @@
 import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 import { Form, Modal, Button } from "react-bootstrap";
+import actions from "../store/actions";
 
 export default function NewContactModal({ closeModal }) {
   const idRef = useRef();
   const nameRef = useRef();
+  const dispatch = useDispatch();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    // createContact(idRef.current.value, nameRef.current.value)
+    dispatch(
+      actions.addContact({
+        id: idRef.current.value,
+        name: nameRef.current.value,
+      })
+    );
     closeModal();
   }
 
